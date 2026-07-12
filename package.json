@@ -14,7 +14,9 @@
     },
     "./styles.css": "./dist/styles.css"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
@@ -38,6 +40,9 @@
     "@radix-ui/react-toast": "^1.2.5"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "8.6.18",
+    "@storybook/react": "8.6.18",
+    "@storybook/react-vite": "^8",
     "@testing-library/jest-dom": "^6",
     "@testing-library/react": "^16",
     "@types/react": "^19",
@@ -45,12 +50,11 @@
     "jsdom": "^25",
     "react": "^19",
     "react-dom": "^19",
+    "storybook": "^8",
     "tailwindcss": "^4",
     "tsup": "^8",
     "typescript": "^5",
-    "vitest": "^2",
-    "storybook": "^8",
-    "@storybook/react-vite": "^8"
+    "vitest": "^2"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
