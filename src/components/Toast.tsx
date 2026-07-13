@@ -39,13 +39,13 @@ export function ToastProvider({ children }: { children: ReactNode }) {
             key={m.id}
             duration={4000}
             onOpenChange={(open) => !open && dismiss(m.id)}
-            className="rounded-[--radius-md] border border-[--border] bg-[--background] p-4 shadow-lg"
+            className="rounded-(--radius-md) border border-(--border) bg-(--background) p-4 shadow-lg"
           >
-            <RadixToast.Title className="text-sm font-medium text-[--foreground]">
+            <RadixToast.Title className="text-sm font-medium text-(--foreground)">
               {m.title}
             </RadixToast.Title>
             {m.description && (
-              <RadixToast.Description className="text-sm text-[--muted-foreground]">
+              <RadixToast.Description className="text-sm text-(--muted-foreground)">
                 {m.description}
               </RadixToast.Description>
             )}

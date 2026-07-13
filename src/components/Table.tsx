@@ -39,7 +39,7 @@ export function Table<T extends object>({ columns, rows }: TableProps<T>) {
   return (
     <table className="w-full border-collapse text-sm">
       <thead>
-        <tr className="border-b border-[--border] text-left text-[--muted-foreground]">
+        <tr className="border-b border-(--border) text-left text-(--muted-foreground)">
           {columns.map((col) => (
             <th
               key={String(col.key)}
@@ -54,7 +54,7 @@ export function Table<T extends object>({ columns, rows }: TableProps<T>) {
       </thead>
       <tbody>
         {sortedRows.map((row, i) => (
-          <tr key={i} className="border-b border-[--border] text-[--foreground]">
+          <tr key={i} className="border-b border-(--border) text-(--foreground)">
             {columns.map((col) => (
               <td key={String(col.key)} className="px-3 py-2">
                 {col.render ? col.render(row) : String(row[col.key])}

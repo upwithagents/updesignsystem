@@ -13,7 +13,7 @@ describe("Button", () => {
   it("applies the pill radius and accent background for the primary variant", () => {
     render(<Button variant="primary">Go</Button>);
     const btn = screen.getByRole("button", { name: "Go" });
-    expect(btn.className).toContain("rounded-[--radius-pill]");
-    expect(btn.className).toContain("bg-[--color-accent]");
+    expect(btn.className).toContain("rounded-(--radius-pill)");
+    expect(btn.className).toContain("bg-(--color-accent)");
   });
 });
