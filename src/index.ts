@@ -26,3 +26,5 @@ export { Table } from "./components/Table";
 export type { TableProps, Column } from "./components/Table";
 export { Stat } from "./components/Stat";
 export type { StatProps } from "./components/Stat";
+export { PortalHeader } from "./components/PortalHeader";
+export type { PortalHeaderProps, PortalHeaderApp } from "./components/PortalHeader";
