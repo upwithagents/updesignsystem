@@ -10,5 +10,6 @@ export default defineConfig({
   external: ["react", "react-dom"],
   onSuccess: async () => {
     cpSync("src/styles/theme.css", "dist/styles.css");
+    cpSync("src/styles/header-scope.css", "dist/header-scope.css");
   },
 });
