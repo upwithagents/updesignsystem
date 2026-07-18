@@ -22,9 +22,17 @@ function applyTheme(theme: Theme) {
 }
 
 export function useTheme() {
-  const [theme, setThemeState] = useState<Theme>(
-    () => storedPreference() ?? systemTheme()
-  );
+  // Starts at a fixed default rather than reading localStorage/matchMedia
+  // in the initializer: that logic only sees real values on the client,
+  // so if it ran during the initial render it would produce a different
+  // result than the server did, causing a hydration mismatch. The real
+  // preference is read and applied in an effect below instead, which
+  // only ever runs on the client, after hydration.
+  const [theme, setThemeState] = useState<Theme>("light");
+
+  useEffect(() => {
+    setThemeState(storedPreference() ?? systemTheme());
+  }, []);
 
   useEffect(() => {
     applyTheme(theme);
