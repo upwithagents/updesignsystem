@@ -4,7 +4,7 @@
 
 @theme {
   --font-sans: var(--app-font-sans, "Inter", ui-sans-serif, system-ui, sans-serif);
-  --font-display: var(--app-font-display, var(--font-sans));
+  --font-display: var(--app-font-display, "Archivo", var(--font-sans));
   --font-mono: var(--app-font-mono, "IBM Plex Mono", ui-monospace, monospace);
 
   --color-paper: #fcfcf9;
