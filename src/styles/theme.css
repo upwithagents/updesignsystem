@@ -63,6 +63,12 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
+
+  /* Native <button> doesn't get a pointer cursor by default (unlike <a
+     href>), so every clickable control silently looked non-interactive. */
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), a[href], summary, label[for] {
+    cursor: pointer;
+  }
 }
 
 /* Groundcontrol signature effects — shared utility classes */

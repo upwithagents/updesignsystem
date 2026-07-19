@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 
-const STORAGE_KEY = "upwithagents-theme";
+export const THEME_STORAGE_KEY = "upwithagents-theme";
+const STORAGE_KEY = THEME_STORAGE_KEY;
 type Theme = "light" | "dark";
 type ThemePreference = Theme | "system";
 
@@ -26,17 +27,25 @@ export function useTheme() {
   // in the initializer: that logic only sees real values on the client,
   // so if it ran during the initial render it would produce a different
   // result than the server did, causing a hydration mismatch. The real
-  // preference is read and applied in an effect below instead, which
-  // only ever runs on the client, after hydration.
+  // preference is read (and, in the effect below, applied) on mount
+  // instead, which only ever runs on the client, after hydration.
   const [theme, setThemeState] = useState<Theme>("light");
+  // Guards the apply-on-change effect from firing with the SSR-safe
+  // "light" default before the mount effect has determined the real
+  // theme - without this, every mount (including every cross-app
+  // navigation, since each app zone is its own Next.js document) would
+  // briefly force light mode before immediately correcting back to dark.
+  const [resolved, setResolved] = useState(false);
 
   useEffect(() => {
     setThemeState(storedPreference() ?? systemTheme());
+    setResolved(true);
   }, []);
 
   useEffect(() => {
+    if (!resolved) return;
     applyTheme(theme);
-  }, [theme]);
+  }, [theme, resolved]);
 
   useEffect(() => {
     if (storedPreference()) return;

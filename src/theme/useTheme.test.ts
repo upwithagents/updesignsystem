@@ -36,4 +36,18 @@ describe("useTheme", () => {
     act(() => result.current.setTheme("system"));
     expect(localStorage.getItem("upwithagents-theme")).toBeNull();
   });
+
+  it("mounting with a stored dark preference never toggles the dark class off first (no flicker)", () => {
+    localStorage.setItem("upwithagents-theme", "dark");
+    const toggleSpy = vi.spyOn(document.documentElement.classList, "toggle");
+    renderHook(() => useTheme());
+    // applyTheme() is a classList.toggle("dark", isDark) call - the bug this
+    // guards against called it once with false (the SSR-safe "light"
+    // default) before immediately correcting with true, which is what
+    // caused the visible flash on every mount (i.e. every cross-app
+    // navigation, since each app zone is its own Next.js document).
+    const darkCalls = toggleSpy.mock.calls.filter(([cls]) => cls === "dark");
+    expect(darkCalls).toEqual([["dark", true]]);
+    expect(document.documentElement.classList.contains("dark")).toBe(true);
+  });
 });

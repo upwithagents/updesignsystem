@@ -1,4 +1,5 @@
-export { useTheme } from "./theme/useTheme";
+export { useTheme, THEME_STORAGE_KEY } from "./theme/useTheme";
+export { ThemeScript } from "./components/ThemeScript";
 export { tokens } from "./theme/tokens";
 export { Button } from "./components/Button";
 export type { ButtonProps } from "./components/Button";
