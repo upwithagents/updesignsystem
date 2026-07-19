@@ -3,24 +3,29 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: var(--app-font-sans, "Inter", ui-sans-serif, system-ui, sans-serif);
+  --font-display: var(--app-font-display, var(--font-sans));
+  --font-mono: var(--app-font-mono, "IBM Plex Mono", ui-monospace, monospace);
 
-  --color-paper: #fdfbf7;
-  --color-paper-muted: #f5f0e8;
-  --color-ink: #2b2622;
-  --color-ink-muted: #6b615a;
-  --color-border: #e7ddd0;
+  --color-paper: #fcfcf9;
+  --color-paper-muted: #f3f3ed;
+  --color-ink: #1f2124;
+  --color-ink-muted: #696e76;
+  --color-border: #e7e7dd;
 
-  --color-accent: #d97757;
-  --color-accent-hover: #c2643f;
-  --color-accent-foreground: #fdfbf7;
+  --color-accent: #eb4e10;
+  --color-accent-hover: #d64108;
+  --color-accent-foreground: #ffffff;
+  --color-accent-hot: #ff5a1f;
+  --color-amber: #e8a200;
 
-  --color-accent-secondary: #b8873f;
+  --color-accent-secondary: #4c6075;
 
-  --color-success: #4d7c5f;
+  --color-success: #1f8a5d;
+  --color-warning: #d9930d;
   --color-danger: #c2483f;
 
-  --radius-md: 0.625rem;
+  --radius-md: 0.5625rem;
   --radius-lg: 0.875rem;
   --radius-pill: 999px;
 }
@@ -42,12 +47,15 @@
 }
 
 .dark [data-portal-chrome] {
-  --background: #241f1b;
-  --foreground: #f3ece3;
-  --muted: #2e2822;
-  --muted-foreground: #b3a89c;
-  --border: #3c342c;
-  --color-accent: #e08a63;
-  --color-accent-hover: #eb9c76;
-  --color-accent-foreground: #241f1b;
+  --background: #0f1012;
+  --foreground: #efefea;
+  --muted: #1a1b1e;
+  --muted-foreground: #9a9c98;
+  --border: #2a2b2e;
+  --color-accent: #ff6b2e;
+  --color-accent-hover: #ff8a55;
+  --color-accent-foreground: #16110d;
+  --color-accent-hot: #ff7a42;
+  --color-amber: #ffb020;
+  --color-warning: #e8a81e;
 }

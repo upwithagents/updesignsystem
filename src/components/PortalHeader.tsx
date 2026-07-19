@@ -34,7 +34,7 @@ export function PortalHeader({
   return (
     <header className="relative z-40 flex items-center justify-between border-b border-(--border) bg-(--background) px-6 py-3">
       <div className="flex items-center gap-5">
-        <a href="/" className="text-lg font-semibold tracking-tight text-(--foreground)">
+        <a href="/" className="font-(family-name:--font-display) text-lg font-semibold tracking-tight text-(--foreground)">
           up<span className="text-(--color-accent)">with</span>agents
         </a>
         {apps.length > 0 && (
@@ -79,7 +79,7 @@ export function PortalHeader({
               aria-expanded={userOpen}
               className="flex items-center gap-2 rounded-(--radius-pill) border border-(--border) px-3 py-1 text-sm text-(--foreground) hover:bg-(--muted)"
             >
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-(--color-accent) text-xs font-semibold text-(--color-accent-foreground)">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-linear-to-br from-(--color-accent-hot) to-(--color-accent) text-xs font-semibold text-(--color-accent-foreground)">
                 {userName.charAt(0).toUpperCase()}
               </span>
               {userName}

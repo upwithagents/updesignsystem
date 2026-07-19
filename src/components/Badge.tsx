@@ -1,12 +1,14 @@
 import type { HTMLAttributes } from "react";
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
-  tone?: "accent" | "success" | "danger" | "neutral";
+  tone?: "accent" | "success" | "warning" | "steel" | "danger" | "neutral";
 }
 
 const toneClasses: Record<NonNullable<BadgeProps["tone"]>, string> = {
   accent: "bg-(--color-accent) text-(--color-accent-foreground)",
   success: "bg-(--color-success) text-(--color-accent-foreground)",
+  warning: "bg-(--color-warning) text-(--color-accent-foreground)",
+  steel: "bg-(--color-accent-secondary) text-(--color-accent-foreground)",
   danger: "bg-(--color-danger) text-(--color-accent-foreground)",
   neutral: "bg-(--muted) text-(--muted-foreground)",
 };

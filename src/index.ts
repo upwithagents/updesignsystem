@@ -28,3 +28,5 @@ export { Stat } from "./components/Stat";
 export type { StatProps } from "./components/Stat";
 export { PortalHeader } from "./components/PortalHeader";
 export type { PortalHeaderProps, PortalHeaderApp } from "./components/PortalHeader";
+export { Ascent } from "./components/Ascent";
+export type { AscentProps } from "./components/Ascent";

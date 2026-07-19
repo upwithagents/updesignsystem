@@ -6,7 +6,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<NonNullable<ButtonProps["variant"]>, string> = {
-  primary: "bg-(--color-accent) text-(--color-accent-foreground) hover:bg-(--color-accent-hover)",
+  primary:
+    "bg-linear-to-b from-(--color-accent-hot) to-(--color-accent) text-(--color-accent-foreground) shadow-[0_1px_2px_color-mix(in_srgb,var(--color-accent)_35%,transparent),0_6px_22px_color-mix(in_srgb,var(--color-accent)_28%,transparent)] hover:brightness-105",
   secondary: "bg-(--muted) text-(--foreground) hover:bg-(--border)",
   ghost: "bg-transparent text-(--foreground) hover:bg-(--muted)",
 };
@@ -21,7 +22,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = "primary", size = "md", className = "", ...props }, ref) => (
     <button
       ref={ref}
-      className={`rounded-(--radius-pill) font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+      className={`rounded-(--radius-md) font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
       {...props}
     />
   )
