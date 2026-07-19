@@ -34,8 +34,44 @@ export function PortalHeader({
   return (
     <header className="relative z-40 flex items-center justify-between border-b border-(--border) bg-(--background) px-6 py-3">
       <div className="flex items-center gap-5">
-        <a href="/" className="font-(family-name:--font-display) text-lg font-semibold tracking-tight text-(--foreground)">
-          up<span className="text-(--color-accent)">with</span>agents
+        <a href="/" className="flex items-center gap-[0.55rem]" aria-label="upwithagents">
+          <svg viewBox="0 0 100 100" width="26" height="26" className="rounded-[6px] shrink-0" aria-hidden="true">
+            <defs>
+              <clipPath id="uwa-sq"><rect width="100" height="100" rx="22" /></clipPath>
+              <linearGradient id="uwa-cA" x1="56" y1="0" x2="100" y2="44" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stopColor="#FFB020" />
+                <stop offset="1" stopColor="#EB4E10" />
+              </linearGradient>
+              <linearGradient id="uwa-cB" x1="0" y1="56" x2="44" y2="100" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stopColor="#EB4E10" />
+                <stop offset="1" stopColor="#B8380A" />
+              </linearGradient>
+            </defs>
+            <g clipPath="url(#uwa-sq)">
+              <rect width="100" height="100" fill="#14100c" />
+              <path d="M56,0 L100,0 L100,44 Z" fill="url(#uwa-cA)" />
+              <path d="M0,56 L0,100 L44,100 Z" fill="url(#uwa-cB)" />
+              <path d="M50,25 L86,71 L50,57 L14,71 Z" fill="#fff8f0" />
+            </g>
+          </svg>
+          <span className="font-(family-name:--font-display) text-lg font-semibold tracking-[-0.015em] leading-none whitespace-nowrap text-(--foreground)">
+            <span aria-hidden="true">
+              up
+              <span className="text-(--color-accent)">
+                w
+                <span className="relative">
+                  ı
+                  <span className="absolute left-1/2 -top-[0.02em] h-[0.5em] w-[0.5em] -translate-x-1/2 pointer-events-none">
+                    <svg viewBox="0 0 100 100" className="block h-full w-full" aria-hidden="true">
+                      <path d="M50,30 L78,66 L50,55 L22,66 Z" fill="currentColor" />
+                    </svg>
+                  </span>
+                </span>
+                th
+              </span>
+              agents
+            </span>
+          </span>
         </a>
         {apps.length > 0 && (
           <div className="relative">
