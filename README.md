@@ -1,8 +1,11 @@
+<img src="docs/icon.svg" width="56" align="left" alt="" />
+
 # @upwithagents/ui
 
-Shared design system for the upwithagents app ecosystem (walletup, sheetup,
-homeup). Warm, approachable, dark-mode-first React components on Tailwind v4
-+ Radix UI.
+Shared design system for the upwithagents app ecosystem — warm,
+approachable, dark-mode-first React components on Tailwind v4 + Radix UI.
+
+<br clear="left"/>
 
 ## Install
 
