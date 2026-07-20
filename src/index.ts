@@ -31,3 +31,4 @@ export { PortalHeader } from "./components/PortalHeader";
 export type { PortalHeaderProps, PortalHeaderApp } from "./components/PortalHeader";
 export { Ascent } from "./components/Ascent";
 export type { AscentProps } from "./components/Ascent";
+export { AppIcon } from "./components/AppIcon";
