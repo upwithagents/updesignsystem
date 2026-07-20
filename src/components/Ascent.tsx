@@ -5,14 +5,19 @@ export interface AscentProps {
 }
 
 const PATH_PAST = "M 14 296 L 96 296 L 96 246 L 178 246 L 178 262 L 252 262 L 252 196 L 336 196";
-const PATH_CLIMB = "M 336 196 L 336 128 L 418 128 L 418 64 L 484 64";
-const PATH_FULL = `${PATH_PAST} L 336 128 L 418 128 L 418 64 L 484 64`;
+const PATH_CLIMB = "M 336 196 L 336 128 L 418 128 L 418 46";
+const PATH_FULL = `${PATH_PAST} L 336 128 L 418 128 L 418 46`;
+const ENDPOINT_X = 418;
+const ENDPOINT_Y = 46;
+// The same notched-arrowhead silhouette as the app icon and the wordmark's
+// tittle (see logo-kit/mark.svg) - own 100x100 box, base edge at y=66.
+const ARROW_MARK = "M50,30 L78,66 L50,55 L22,66 Z";
 
 /**
  * The Groundcontrol signature graphic: a step-line climbing up and to the
- * right, ending in a glowing "NOW" endpoint. With `motion`, a small light
- * travels the path every ~6s and the endpoint breathes — both disabled
- * under prefers-reduced-motion.
+ * right, ending in the same arrow mark as the icon/wordmark. With `motion`,
+ * a small light travels the path every ~6s and the endpoint breathes —
+ * both disabled under prefers-reduced-motion.
  */
 export function Ascent({ motion = false, className = "" }: AscentProps) {
   return (
@@ -50,11 +55,11 @@ export function Ascent({ motion = false, className = "" }: AscentProps) {
         <circle cx="252" cy="262" r="2.5" fill="var(--foreground)" fillOpacity="0.3" />
         <circle cx="336" cy="196" r="2.5" fill="var(--foreground)" fillOpacity="0.3" />
         <circle cx="418" cy="128" r="2.5" fill="var(--color-accent)" fillOpacity="0.55" />
-        <circle cx="484" cy="64" r="9" fill="var(--color-accent)" fillOpacity="0.14" />
+        <circle cx={ENDPOINT_X} cy={ENDPOINT_Y} r="9" fill="var(--color-accent)" fillOpacity="0.14" />
         {motion && (
           <circle
-            cx="484"
-            cy="64"
+            cx={ENDPOINT_X}
+            cy={ENDPOINT_Y}
             r="6"
             fill="none"
             stroke="var(--color-accent)"
@@ -62,7 +67,11 @@ export function Ascent({ motion = false, className = "" }: AscentProps) {
             className="motion-safe:animate-[ascent-breathe_2.6s_cubic-bezier(0.2,0.6,0.4,1)_infinite] origin-center [transform-box:fill-box]"
           />
         )}
-        <circle cx="484" cy="64" r="5" fill="var(--color-accent)" />
+        <path
+          d={ARROW_MARK}
+          fill="var(--color-accent)"
+          transform={`translate(${ENDPOINT_X},${ENDPOINT_Y}) scale(0.42) translate(-50,-66)`}
+        />
         {motion && (
           <circle
             r="4.5"
