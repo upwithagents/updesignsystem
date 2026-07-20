@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { ThemeToggle } from "./ThemeToggle";
+import { AppIcon } from "./AppIcon";
 
 export interface PortalHeaderApp {
   slug: string;
@@ -96,7 +97,7 @@ export function PortalHeader({
                         : "text-(--foreground)"
                     }`}
                   >
-                    <span aria-hidden>{app.icon}</span>
+                    <AppIcon slug={app.slug} size={24} />
                     {app.name}
                   </a>
                 ))}
