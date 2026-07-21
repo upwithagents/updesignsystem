@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { AppIcon } from "./AppIcon";
+import { startAscentProgress } from "./AscentProgress";
 
 export interface PortalHeaderApp {
   slug: string;
@@ -90,6 +91,7 @@ export function PortalHeader({
                   <a
                     key={app.slug}
                     href={`/${app.slug}`}
+                    onClick={() => app.slug !== currentSlug && startAscentProgress()}
                     aria-current={app.slug === currentSlug ? "page" : undefined}
                     className={`flex items-center gap-3 rounded-(--radius-md) px-3 py-2 text-sm hover:bg-(--muted) ${
                       app.slug === currentSlug
