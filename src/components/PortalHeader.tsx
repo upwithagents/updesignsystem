@@ -82,9 +82,18 @@ export function PortalHeader({
               type="button"
               onClick={() => setAppsOpen((v) => !v)}
               aria-expanded={appsOpen}
-              className="rounded-(--radius-pill) border border-(--border) px-3 py-1 text-sm text-(--foreground) hover:bg-(--muted)"
+              aria-label="Apps"
+              className="flex items-center gap-2 rounded-(--radius-pill) border border-(--border) px-3 py-1 text-sm text-(--foreground) hover:bg-(--muted)"
             >
-              Apps {appsOpen ? "▴" : "▾"}
+              {currentApp ? (
+                <>
+                  <AppIcon slug={currentApp.slug} size={20} />
+                  {currentApp.name}
+                </>
+              ) : (
+                "Apps"
+              )}{" "}
+              {appsOpen ? "▴" : "▾"}
             </button>
             {appsOpen && (
               <nav className="absolute left-0 mt-2 w-56 rounded-(--radius-lg) border border-(--border) bg-(--background) p-2 shadow-lg">
@@ -106,12 +115,6 @@ export function PortalHeader({
                 ))}
               </nav>
             )}
-          </div>
-        )}
-        {currentApp && (
-          <div className="flex items-center gap-2 text-sm font-medium text-(--foreground)">
-            <AppIcon slug={currentApp.slug} size={22} />
-            {currentApp.name}
           </div>
         )}
       </div>

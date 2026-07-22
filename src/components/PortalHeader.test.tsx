@@ -36,11 +36,13 @@ describe("PortalHeader", () => {
     ).toBe("page");
   });
 
-  it("shows the current app's icon and name in the header without opening the switcher", () => {
+  it("shows the current app's name on the Apps button without opening the switcher", () => {
     render(
       <PortalHeader apps={apps} currentSlug="sheetup" userName="Laci" />,
     );
-    expect(screen.getByText("SheetUp")).toBeTruthy();
+    expect(screen.getByRole("button", { name: /apps/i }).textContent).toContain(
+      "SheetUp",
+    );
   });
 
   it("renders the logout slot inside the user menu", () => {
