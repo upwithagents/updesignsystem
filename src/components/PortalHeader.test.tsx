@@ -36,6 +36,13 @@ describe("PortalHeader", () => {
     ).toBe("page");
   });
 
+  it("shows the current app's icon and name in the header without opening the switcher", () => {
+    render(
+      <PortalHeader apps={apps} currentSlug="sheetup" userName="Laci" />,
+    );
+    expect(screen.getByText("SheetUp")).toBeTruthy();
+  });
+
   it("renders the logout slot inside the user menu", () => {
     render(
       <PortalHeader

@@ -32,6 +32,7 @@ export function PortalHeader({
 }: PortalHeaderProps) {
   const [appsOpen, setAppsOpen] = useState(false);
   const [userOpen, setUserOpen] = useState(false);
+  const currentApp = apps.find((app) => app.slug === currentSlug);
 
   return (
     <header className="relative z-40 flex items-center justify-between border-b border-(--border) bg-(--background) px-6 py-3">
@@ -105,6 +106,12 @@ export function PortalHeader({
                 ))}
               </nav>
             )}
+          </div>
+        )}
+        {currentApp && (
+          <div className="flex items-center gap-2 text-sm font-medium text-(--foreground)">
+            <AppIcon slug={currentApp.slug} size={22} />
+            {currentApp.name}
           </div>
         )}
       </div>
