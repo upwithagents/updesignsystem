@@ -18,8 +18,9 @@ export function AppNav({ links, right }: AppNavProps) {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-wrap items-center justify-between gap-3 border-b border-(--border) px-6 py-3">
-      <div className="flex flex-wrap gap-1">
+    <nav className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 border-b border-(--border) px-6 py-3">
+      <div aria-hidden="true" />
+      <div className="flex flex-wrap justify-center gap-1">
         {links.map((link) => {
           const active =
             link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
@@ -39,7 +40,7 @@ export function AppNav({ links, right }: AppNavProps) {
           );
         })}
       </div>
-      {right}
+      <div className="flex justify-end">{right}</div>
     </nav>
   );
 }
